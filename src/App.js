@@ -6,7 +6,7 @@ import Users from "./users";
 
 function App({login}) {
 	
-	const [data, setData] = useState(null);
+	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 
@@ -38,13 +38,13 @@ function App({login}) {
 			</div>
 		)
 	}
+	
 	if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
 	if (!data) return;
 		
 	
 	return (
 		<>
-			
 			<Users data={data}/>
 		</>
 		
