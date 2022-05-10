@@ -1,50 +1,27 @@
+import React, {useState, useEffect} from "react";
 import './App.css';
-import restaurant from "./shop.png";
 
-function Header(props){
+function App(props) {
+	const [emotion, setEmotion] = useState("Happy");
+	const [secondary, setSecondary] = useState("Tired");
+
+	useEffect(() => {
+		console.log(`It's ${emotion} in here.`);
+	}, [emotion])
+
+	useEffect(() => {
+		console.log(`It's ${secondary} in here.`);
+	}, [secondary])
+
 	return (
-		<header>
-			<h1>{props.name} Machiato</h1>
-		</header>
+		<>
+			<h1>Feeling {emotion} and {secondary}</h1>
+			<button onClick={() => {setEmotion("Happy"); setSecondary("Tired")}}>Make Happy</button>
+			<button onClick={() => setEmotion("Annoyed")}>Annoy</button>
+			<button onClick={() => setEmotion("Mad")}>Make angry</button><br />
+			<button onClick={() => setSecondary("Cranky")}>Crank</button>
+		</>
 	)
-}
-function Main(props){
-	return (
-		<section>
-			<p>We serve the most {props.adj} coffee around.</p>
-			<img src={restaurant} alt="A Restaurant PNG" height={200}/>
-			<ul style={{textAlign: "left"}}>
-				{props.dishes.map((dish) => <li key={dish.id}>{dish.title}</li>)}
-			</ul>
-		</section>
-	)
-}
-
-function Footer(props) {
-	return ( 
-		<footer>
-			<p>copyright {props.year}</p>
-		</footer>
-	 );
-}
-
-const dishes = [
-	"Pasta with vegetables",
-	"Asa wet",
-	"Quanta firfir",
-	"Tegabino"
-]
-
-const dishObjects = dishes.map((dish, i) => ({id: i, title: dish}));
-
-function App() {
-  return (
-    <div className="App">
-		<Header name="Proxima"/>
-		<Main adj="delicious" dishes={dishObjects}/>
-		<Footer year= {new Date().getFullYear()}/>
-    </div>
-  );
 }
 
 export default App;
