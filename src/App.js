@@ -5,7 +5,6 @@ import Users from "./users";
 // https://api.github.com/users/euaell
 
 function App({login}) {
-	
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
@@ -23,31 +22,32 @@ function App({login}) {
 	if (loading)
 	{
 		return (
-			<div className="preloader-wrapper small active">
-				<div className="spinner-layer spinner-green-only">
-					<div className="circle-clipper left">
-						<div className="circle"></div>
-					</div>
-					<div className="gap-patch">
-						<div className="circle"></div>
-					</div>
-					<div className="circle-clipper right">
-						<div className="circle"></div>
+			<>
+				<br />
+				<div className="preloader-wrapper small active l-marg">
+					<div className="spinner-layer spinner-green-only">
+						<div className="circle-clipper left">
+							<div className="circle"></div>
+						</div>
+						<div className="gap-patch">
+							<div className="circle"></div>
+						</div>
+						<div className="circle-clipper right">
+							<div className="circle"></div>
+						</div>
 					</div>
 				</div>
-			</div>
+			</>
 		)
 	}
 	
 	if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
 	if (!data) return;
-		
 	
 	return (
-		<>
+		<>			
 			<Users data={data}/>
-		</>
-		
+		</>		
 	)
 }
 

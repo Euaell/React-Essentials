@@ -24,6 +24,11 @@
   font-weight: 900;
 }
 
+.l-marg{
+  margin-top: 5%;
+  margin-left: 14%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
