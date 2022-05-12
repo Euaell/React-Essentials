@@ -1,49 +1,31 @@
-import React, {useState, useEffect} from "react";
-import Users from "./users";
+import React, {useState, useRef} from "react";
+import { PreUser } from "./preUser";
 
 export function Home({login}){
-    const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
+    const inp = useRef();
+	const [user, setUser] = useState(login);
 
-	useEffect(() => {
-		if (!login) return;
-		setLoading(true);
-		fetch(`https://api.github.com/users/${login}`)
-		.then(response => response.json())
-		.then(data => setData(data))
-		.then(() => setLoading(false))
-		.catch(err => setError(err));
-	}, [login])
+	function clickHandler(){
+		if (inp.current.value === "") return;
+		setUser(inp.current.value);
 
-	if (loading)
-	{
-		return (
-			<>
-				<br />
-				<div className="preloader-wrapper small active l-marg">
-					<div className="spinner-layer spinner-green-only">
-						<div className="circle-clipper left">
-							<div className="circle"></div>
-						</div>
-						<div className="gap-patch">
-							<div className="circle"></div>
-						</div>
-						<div className="circle-clipper right">
-							<div className="circle"></div>
-						</div>
-					</div>
-				</div>
-			</>
-		)
+		inp.current.value = null;
 	}
-	
-	if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
-	if (!data) return;
-	
-	return (
-		<>			
-			<Users data={data}/>
+
+
+	return ( 
+		<>	
+			<div className="row">
+				<div className="input-field col s4">
+					<input ref={inp} id="first_name" type="text" className="validate" />
+					<label for="first_name">User Name</label>
+       			</div>
+				<div className="col s3">
+					<br />
+					<input className="btn waves-effect waves-light" type="button" value="search" onClick={clickHandler}/>
+				</div>
+  			</div>	
+			<PreUser user={user}/>
 		</>		
 	)
 }
