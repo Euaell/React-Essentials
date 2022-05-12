@@ -5,17 +5,19 @@ import {
 	Home,
 	About, 
 	Events,
-	Contact
+	Contact,
+	PageNotFound
 } from "./pages";
-
+ 
 function App() {
 	return (
 		<div>
 			<Routes>
 				<Route path="/" element={<Home login="euaell" />}/>
-				<Route path="/about" element={<About />}/>
+				<Route path="/about" element={<About />} />
 				<Route path="/events" element={<Events />}/>
 				<Route path="/contact" element={<Contact />}/>
+				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 		</div>
 	)

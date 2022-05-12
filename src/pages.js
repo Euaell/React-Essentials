@@ -1,5 +1,6 @@
 import React, {useState, useRef} from "react";
 import { PreUser } from "./preUser";
+import { useLocation } from "react-router-dom";
 
 export function Home({login}){
     const inp = useRef();
@@ -9,7 +10,7 @@ export function Home({login}){
 		if (inp.current.value === "") return;
 		setUser(inp.current.value);
 
-		inp.current.value = null;
+		inp.current.value = null;		
 	}
 
 
@@ -18,7 +19,7 @@ export function Home({login}){
 			<div className="row">
 				<div className="input-field col s4">
 					<input ref={inp} id="first_name" type="text" className="validate" />
-					<label for="first_name">User Name</label>
+					<label htmlFor="first_name">User Name</label>
        			</div>
 				<div className="col s3">
 					<br />
@@ -52,4 +53,14 @@ export function Contact(){
             <h1>[Contact]</h1>
         </div>
     );
+}
+
+export function PageNotFound(){
+	let location = useLocation();
+	console.log(location);
+	return (
+		<div>
+			<h1>[{location.pathname} Not Found!!]</h1>
+		</div>
+	)
 }
