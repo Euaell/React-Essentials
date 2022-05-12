@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
 	<>
-		<Header />
 		<Router>
+			<Header />
 			<App login="euaell"/>
 		</Router>
 			  
