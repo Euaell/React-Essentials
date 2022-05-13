@@ -17,7 +17,7 @@ export function Home({login}){
 	return ( 
 		<>	
 			<div className="row">
-				<div className="input-field col s4">
+				<div className="input-field col s3">
 					<input ref={inp} id="first_name" type="text" className="validate" />
 					<label htmlFor="first_name">User Name</label>
        			</div>
