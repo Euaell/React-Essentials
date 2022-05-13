@@ -1,6 +1,7 @@
 import React, {useState, useRef} from "react";
 import { PreUser } from "./preUser";
 import { useLocation } from "react-router-dom";
+import { BiSearchAlt } from 'react-icons/bi'
 
 export function Home({login}){
     const inp = useRef();
@@ -19,7 +20,7 @@ export function Home({login}){
 			<div className="row">
 				<div className="input-field col s3">
 					<input ref={inp} id="first_name" type="text" className="validate" />
-					<label htmlFor="first_name">User Name</label>
+					<label htmlFor="first_name"><BiSearchAlt /> User Name</label>
        			</div>
 				<div className="col s3">
 					<br />
