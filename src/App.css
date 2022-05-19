@@ -5,6 +5,7 @@
   font-family: 'Secular One', sans-serif;
   font-size: 4rem;
   font-weight: bolder;
+  mix-blend-mode: difference;
 }
 
 .App {
