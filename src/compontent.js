@@ -1,15 +1,17 @@
-function Compontent(content) {
+function Compontent({content}) {
+    
     return ( 
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">{content.content.Title}</span>
-                        <p>{content.content.desc}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="/">Visit</a>
-                    </div>
+        <div className="col s9 m5">
+            <div className="card">
+                <div className="card-image">
+                    <img height={200} width={200} src={content.pic} alt=""/>
+                    <span className="card-title name">{content.Name}</span>
+                </div>
+                <div className="card-content">
+                    <p>{content.desc}</p>
+                </div>
+                <div className="card-action">
+                    <a href="/">visit</a> {content.price} Birr
                 </div>
             </div>
         </div>
