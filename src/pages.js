@@ -2,6 +2,7 @@ import React, {useState, useRef} from "react";
 import { PreUser } from "./preUser";
 import { useLocation } from "react-router-dom";
 import { BiSearchAlt } from 'react-icons/bi'
+import File from "./File";
 
 export function Home({login}){
     const inp = useRef();
@@ -44,6 +45,7 @@ export function Events(){
     return (
         <div>
             <h1>[Events]</h1>
+			<File />
         </div>
     );
 }
