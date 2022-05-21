@@ -66,15 +66,21 @@ class File extends Component {
 	render() {
 	
         return (
-            <div>
-                <div>
+            <div className="file-field input-field row">
+                <div className="btn col">
+                    <span>File</span>
                     <input type="file" onChange={this.onFileChange} />
-                    <button onClick={this.onFileUpload}>
-                    Upload!
-                    </button>
                 </div>
+                <div className="file-path-wrapper col">
+                    <input className="file-path validate" type="text" />
+                </div>
+                <button className="btn waves-effect waves-light purple darken-1" onClick={this.onFileUpload}>
+                    Upload!
+                </button>
+                <br />
                 {this.fileData()}
             </div>
+            
         );
 	}
 }
